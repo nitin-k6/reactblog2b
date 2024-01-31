@@ -27,6 +27,11 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+app.get("/", (req,res)=>{
+ res.setHeader("Access-Control_Allow_Credentials","true");
+ res.send("API is running");
+});
+
 
 const mongo_url = "mongodb+srv://nitinkumar67:nitinkumar67@cluster0.99nqtfb.mongodb.net/?retryWrites=true&w=majority";
 async function connect(){
