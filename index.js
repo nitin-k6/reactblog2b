@@ -87,7 +87,7 @@ app.post("/upload", upload.single("file"), (req, res) => {
 
 //Now for saving data we get from the request or client to the database //Fetching and Saving
 //Registration
- app.use('/register', async(req, res)=>{  // can use app.post
+ app.use('/register', async(req, res)=>{  // can use app.postbb
      try{
         const salt= await bcrypt.genSalt(10);
         const hasedPass= await bcrypt.hash(req.body.password, salt)
@@ -96,12 +96,16 @@ app.post("/upload", upload.single("file"), (req, res) => {
         email: req.body.email,
          password:hasedPass,                  // password:req.body.password
       });
+      res.redirect('/login');
       res.status(200).send(register);
      }catch(error){
       console.log(error.message);
       res.status(500).json({message: error.message})
      }
   })
+
+
+
 
 //login
     app.post('/login' , async (req,res) =>{
