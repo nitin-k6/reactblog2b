@@ -96,8 +96,8 @@ app.post("/upload", upload.single("file"), (req, res) => {
         email: req.body.email,
          password:hasedPass,                  // password:req.body.password
       });
+      res.status(200).send(register);
       res.redirect('/login');
-      /* res.status(200).send(register);*/
      }catch(error){
       console.log(error.message);
       res.status(500).json({message: error.message})
