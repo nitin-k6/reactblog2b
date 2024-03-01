@@ -28,7 +28,12 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.get("/", (req,res)=>{
- res.setHeader("Access-Control_Allow_Credentials","true");
+ res.setHeader("Access-Control-Allow-Credentials","true");
+ res.setHeader("Acess-Control-Allow-Origin", '*');
+ res.setHeader("Acess-Control-Allow-Methods",'GET , POST,OPTIONS');
+ res.setHeader("Acess-Control-Allow-Headers",'Content-Type');
+ 
+ 
  res.send("API is running");
 });
 
